@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="Please Enter Your Email"
                 android:hint="@string/enter_your_email"
-                android:inputType="textEmailAddress"
+                android:inputType="textWebEmailAddress"
                 android:singleLine="true"
                 android:textColorHint="@color/lightDark"
                 app:backgroundTint="@color/green"

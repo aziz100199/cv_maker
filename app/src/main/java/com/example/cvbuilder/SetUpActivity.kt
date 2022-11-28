@@ -1,15 +1,12 @@
 package com.example.cvbuilder
 
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import com.example.cvbuilder.Utils.checkForInternet
+import com.example.cvbuilder.Utils.showToast
 import com.example.cvbuilder.databinding.ActivitySetUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,19 +25,16 @@ class SetUpActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
                 startActivity(Intent(this, SetUpActivity::class.java))
-                showToast("Account Created SuccessFully")
+                showToast("Account Created SuccessFully", this@SetUpActivity)
             } /*else if (it.result.user?.isEmailVerified == false) {
                 showToast("Please Check Your Email")
             }*/ else {
-                showToast("some thing went to wrong")
+                showToast("some thing went to wrong", this@SetUpActivity)
             }
         }
 
     }
 
-    private fun showToast(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-    }
 
     private fun toolBar() {
         binding?.toolBar?.apply {
@@ -59,16 +53,18 @@ class SetUpActivity : AppCompatActivity() {
             singInBtn.setOnClickListener {
                 val email = textEmailEdt.text
                 val psd = textPasswordEdt.text
-                if (email.isEmpty()) {
-                    showToast("Please Enter Email")
+                if (email.isEmpty() && email.contains("@")) {
+                    showToast("Please Enter Email", this@SetUpActivity)
                 } else if (psd.isEmpty()) {
-                    showToast("Please Enter Password")
+                    showToast("Please Enter Password More", this@SetUpActivity)
+                } else if (psd.length > 6) {
+                    showToast("Password Must Be More Then Six Character", this@SetUpActivity)
                 } else {
                     if (checkForInternet(this@SetUpActivity)) {
-                        showToast("internetAvailable")
+                        showToast("internetAvailable", this@SetUpActivity)
                         proceedToSingUp(email.toString(), psd.toString())
                     } else {
-                        showToast("check your internet")
+                        showToast("check your internet", this@SetUpActivity)
                     }
                 }
             }
@@ -81,43 +77,4 @@ class SetUpActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
-    private fun checkForInternet(context: Context): Boolean {
-
-        // register activity with the connectivity manager service
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        // if the android version is equal to M
-        // or greater we need to use the
-        // NetworkCapabilities to check what type of
-        // network has the internet connection
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-            // Returns a Network object corresponding to
-            // the currently active default data network.
-            val network = connectivityManager.activeNetwork ?: return false
-
-            // Representation of the capabilities of an active network.
-            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
-
-            return when {
-                // Indicates this network uses a Wi-Fi transport,
-                // or WiFi has network connectivity
-                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-
-                // Indicates this network uses a Cellular transport. or
-                // Cellular has network connectivity
-                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
-
-                // else return false
-                else -> false
-            }
-        } else {
-            // if the android version is below M
-            @Suppress("DEPRECATION") val networkInfo =
-                connectivityManager.activeNetworkInfo ?: return false
-            @Suppress("DEPRECATION")
-            return networkInfo.isConnected
-        }
-    }
 }
