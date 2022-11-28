@@ -65,6 +65,7 @@ class SetUpActivity : AppCompatActivity() {
                         proceedToSingUp(email.toString(), psd.toString())
                     } else {
                         showToast("check your internet", this@SetUpActivity)
+
                     }
                 }
             }
