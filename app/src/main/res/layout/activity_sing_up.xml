@@ -88,6 +88,7 @@
                 android:hint="@string/enter_your_password"
                 android:inputType="text"
                 android:textColorHint="@color/lightDark"
+                android:singleLine="true"
                 app:backgroundTint="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +109,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/setUpLayout" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:indeterminateTint="@color/green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signUpBtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

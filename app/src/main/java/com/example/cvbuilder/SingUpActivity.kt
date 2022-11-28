@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.cvbuilder.Utils.showToast
 import com.example.cvbuilder.databinding.ActivitySingUpBinding
@@ -25,13 +26,16 @@ class SingUpActivity : AppCompatActivity() {
             signUpBtn.setOnClickListener {
                 val email = textEmailEdt.text.toString()
                 val psd = textPasswordEdt.text.toString()
-                if (email.isEmpty()) {
+                if (email.isEmpty() || !email.contains("@")) {
                     showToast("Please Enter Email", this@SingUpActivity)
                 } else if (psd.isEmpty()) {
-                    showToast("Please Enter Password", this@SingUpActivity)
+                    showToast("Please Enter Password More", this@SingUpActivity)
+                } else if (psd.length < 6) {
+                    showToast("Password Must Be More Then Six Character", this@SingUpActivity)
                 } else {
                     if (Utils.checkForInternet(this@SingUpActivity)) {
                         showToast("internetAvailable", this@SingUpActivity)
+                        binding?.progressBar?.isVisible=true
                         proceedToSingUp(email, psd)
                     } else {
                         showToast("check your internet", this@SingUpActivity)
@@ -44,8 +48,10 @@ class SingUpActivity : AppCompatActivity() {
     private fun proceedToSingUp(email: String, psd: String) {
         auth.createUserWithEmailAndPassword(email, psd).addOnCompleteListener {
             if (it.isSuccessful) {
-                startActivity(Intent(this, CvScreenActivity::class.java))
+                binding?.progressBar?.isVisible=false
+                startActivity(Intent(this, SetUpActivity::class.java))
             } else {
+                binding?.progressBar?.isVisible=false
                 showToast("some thing went to wrong", this)
             }
         }

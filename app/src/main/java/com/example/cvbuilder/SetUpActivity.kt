@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.example.cvbuilder.Utils.checkForInternet
 import com.example.cvbuilder.Utils.showToast
@@ -21,14 +22,16 @@ class SetUpActivity : AppCompatActivity() {
         clickListeners()
     }
 
-    private fun proceedToSingUp(email: String, password: String) {
+    private fun proceedToSingIn(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
-                startActivity(Intent(this, SetUpActivity::class.java))
-                showToast("Account Created SuccessFully", this@SetUpActivity)
+                startActivity(Intent(this, CvScreenActivity::class.java))
+                showToast("Login SuccessFully", this@SetUpActivity)
+                binding?.progressBar?.isVisible=false
             } /*else if (it.result.user?.isEmailVerified == false) {
                 showToast("Please Check Your Email")
             }*/ else {
+                binding?.progressBar?.isVisible=false
                 showToast("some thing went to wrong", this@SetUpActivity)
             }
         }
@@ -53,16 +56,17 @@ class SetUpActivity : AppCompatActivity() {
             singInBtn.setOnClickListener {
                 val email = textEmailEdt.text
                 val psd = textPasswordEdt.text
-                if (email.isEmpty() && email.contains("@")) {
+                if (email.isEmpty() || !email.contains("@")) {
                     showToast("Please Enter Email", this@SetUpActivity)
                 } else if (psd.isEmpty()) {
                     showToast("Please Enter Password More", this@SetUpActivity)
-                } else if (psd.length > 6) {
+                } else if (psd.length < 6) {
                     showToast("Password Must Be More Then Six Character", this@SetUpActivity)
                 } else {
                     if (checkForInternet(this@SetUpActivity)) {
                         showToast("internetAvailable", this@SetUpActivity)
-                        proceedToSingUp(email.toString(), psd.toString())
+                        progressBar.isVisible=true
+                        proceedToSingIn(email.toString(), psd.toString())
                     } else {
                         showToast("check your internet", this@SetUpActivity)
 
