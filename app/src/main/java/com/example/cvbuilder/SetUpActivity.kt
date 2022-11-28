@@ -22,6 +22,14 @@ class SetUpActivity : AppCompatActivity() {
         clickListeners()
     }
 
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            startActivity(Intent(this, CvScreenActivity::class.java))
+        }
+    }
+
     private fun proceedToSingIn(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
