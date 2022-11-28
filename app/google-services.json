@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "612648003354",
+    "project_id": "cv-builder-51ab3",
+    "storage_bucket": "cv-builder-51ab3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612648003354:android:cc645e287aa4700a7ceea3",
+        "android_client_info": {
+          "package_name": "com.example.cvbuilder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612648003354-68q99bcqljf4a4uhrsgtits84cfcfl8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cvbuilder",
+            "certificate_hash": "e9ba1ebae704149ca6a38631dcb362ea20cc355c"
+          }
+        },
+        {
+          "client_id": "612648003354-9dv5ele8ckcpe31qenqrn4pbsggtoflb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrwhp0zjt6s8WCvzrh4cULfk-ksf8LvMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612648003354-9dv5ele8ckcpe31qenqrn4pbsggtoflb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

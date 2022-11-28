@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CvBuilder</string>
+    <string name="enter_your_email">enter your email</string>
+    <string name="enter_your_password">enter your password</string>
+    <string name="setup">SetUp</string>
+    <string name="if_you_don_t_have_account">if you don\'t have Account</string>
+    <string name="click_here">Click Here ?</string>
+    <string name="sing_in">Sing In</string>
+    <string name="sing_up">Sing Up</string>
+</resources>
