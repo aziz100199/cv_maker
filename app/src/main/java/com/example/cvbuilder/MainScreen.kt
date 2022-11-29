@@ -29,7 +29,7 @@ class MainScreen : AppCompatActivity() {
                     binding?.progressBar?.isVisible = false
                 }
                 .collect {
-                    startActivity(Intent(this@MainScreen, SetUpActivity::class.java))
+                    startActivity(Intent(this@MainScreen, SignInActivity::class.java))
                     finish()
                 }
         }

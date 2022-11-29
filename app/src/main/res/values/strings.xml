@@ -5,8 +5,24 @@
     <string name="setup">SetUp</string>
     <string name="if_you_don_t_have_account">if you don\'t have Account</string>
     <string name="click_here">Click Here ?</string>
-    <string name="sing_in">Sing In</string>
-    <string name="sing_up">Sing Up</string>
+    <string name="sing_in">Sign In</string>
+    <string name="sing_up">Sign Up</string>
     <string name="preview">preview</string>
     <string name="make_cv">make cv</string>
+    <string name="MakeCv">Make Cv</string>
+    <string name="Cv">CV</string>
+    <string name="name">Name</string>
+    <string name="fatherName">Father Name</string>
+    <string name="EMail_ID">EMail ID</string>
+    <string name="mobile">Mobile</string>
+    <string name="summary">Summary</string>
+    <string name="degreeName">Degree Name</string>
+    <string name="institute">Institute</string>
+    <string name="startYear">Start Year</string>
+    <string name="endYear">End Year</string>
+    <string name="companyName">Company Name</string>
+    <string name="joiningDateYear">Joining Date Year</string>
+    <string name="skillsHobbies"><![CDATA[Skills & Hobbies]]></string>
+    <string name="upload_data">Make Cv</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

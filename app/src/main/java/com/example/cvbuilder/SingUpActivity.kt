@@ -49,7 +49,7 @@ class SingUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, psd).addOnCompleteListener {
             if (it.isSuccessful) {
                 binding?.progressBar?.isVisible=false
-                startActivity(Intent(this, SetUpActivity::class.java))
+                startActivity(Intent(this, SignInActivity::class.java))
             } else {
                 binding?.progressBar?.isVisible=false
                 showToast("some thing went to wrong", this)

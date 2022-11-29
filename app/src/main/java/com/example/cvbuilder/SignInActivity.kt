@@ -11,13 +11,12 @@ import com.example.cvbuilder.Utils.showToast
 import com.example.cvbuilder.databinding.ActivitySetUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SetUpActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
     private var binding: ActivitySetUpBinding? = null
     private var auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_set_up)
-//        connectionDetector()
         toolBar()
         clickListeners()
     }
@@ -34,13 +33,13 @@ class SetUpActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
                 startActivity(Intent(this, CvScreenActivity::class.java))
-                showToast("Login SuccessFully", this@SetUpActivity)
+                showToast("Login SuccessFully", this@SignInActivity)
                 binding?.progressBar?.isVisible=false
             } /*else if (it.result.user?.isEmailVerified == false) {
                 showToast("Please Check Your Email")
             }*/ else {
                 binding?.progressBar?.isVisible=false
-                showToast("some thing went to wrong", this@SetUpActivity)
+                showToast("some thing went to wrong", this@SignInActivity)
             }
         }
 
@@ -51,7 +50,7 @@ class SetUpActivity : AppCompatActivity() {
         binding?.toolBar?.apply {
             title = getString(R.string.sing_in)
             setNavigationIcon(R.drawable.back_button)
-            setTitleTextColor(ContextCompat.getColor(this@SetUpActivity, R.color.white))
+            setTitleTextColor(ContextCompat.getColor(this@SignInActivity, R.color.white))
             setSupportActionBar(this)
         }
     }
@@ -59,24 +58,24 @@ class SetUpActivity : AppCompatActivity() {
     private fun clickListeners() {
         binding?.apply {
             singUpClick.setOnClickListener {
-                startActivity(Intent(this@SetUpActivity, SingUpActivity::class.java))
+                startActivity(Intent(this@SignInActivity, SingUpActivity::class.java))
             }
             singInBtn.setOnClickListener {
                 val email = textEmailEdt.text
                 val psd = textPasswordEdt.text
                 if (email.isEmpty() || !email.contains("@")) {
-                    showToast("Please Enter Email", this@SetUpActivity)
+                    showToast("Please Enter Email", this@SignInActivity)
                 } else if (psd.isEmpty()) {
-                    showToast("Please Enter Password More", this@SetUpActivity)
+                    showToast("Please Enter Password More", this@SignInActivity)
                 } else if (psd.length < 6) {
-                    showToast("Password Must Be More Then Six Character", this@SetUpActivity)
+                    showToast("Password Must Be More Then Six Character", this@SignInActivity)
                 } else {
-                    if (checkForInternet(this@SetUpActivity)) {
-                        showToast("internetAvailable", this@SetUpActivity)
+                    if (checkForInternet(this@SignInActivity)) {
+                        showToast("internetAvailable", this@SignInActivity)
                         progressBar.isVisible=true
                         proceedToSingIn(email.toString(), psd.toString())
                     } else {
-                        showToast("check your internet", this@SetUpActivity)
+                        showToast("check your internet", this@SignInActivity)
 
                     }
                 }

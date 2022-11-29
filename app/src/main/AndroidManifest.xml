@@ -19,6 +19,20 @@
         android:theme="@style/Theme.CvBuilder"
         tools:targetApi="31">
         <activity
+            android:name=".GetCvActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MakeCVActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CvScreenActivity"
             android:exported="false">
             <meta-data
@@ -33,7 +47,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SetUpActivity"
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
