@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/more_lightDark"
@@ -35,6 +36,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
+
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
@@ -65,8 +67,9 @@
                     android:id="@+id/nameTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Name"
+                    android:hint="@string/name"
                     android:padding="10dp"
+                    android:textAllCaps="true"
                     android:textColor="@color/dark_blue"
                     android:textColorHint="@color/dark_blue"
                     android:textStyle="bold"
@@ -93,15 +96,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view2">
 
+                    <View
+                        android:id="@+id/nameSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/name_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -110,14 +122,13 @@
                         android:id="@+id/nameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/name"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/name"
+                        app:layout_constraintStart_toEndOf="@+id/nameSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -131,15 +142,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/nameLayout">
 
+
+                    <View
+                        android:id="@+id/father_NameSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
                     <TextView
                         android:id="@+id/father_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/father_name"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -148,15 +170,16 @@
                         android:id="@+id/father_NameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/fatherName"
                         android:padding="10dp"
+                        android:capitalize="sentences"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/father_Name"
+                        app:layout_constraintStart_toEndOf="@+id/father_NameSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -168,15 +191,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/father_NameLayout">
 
+
+                    <View
+                        android:id="@+id/email_IDSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
                     <TextView
                         android:id="@+id/email_ID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/father_name"
+                        android:hint="@string/email_id_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -185,31 +219,16 @@
                         android:id="@+id/email_IDTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/email_id"
+                        android:hint="@string/EMail_ID"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/email_ID"
+                        app:layout_constraintStart_toEndOf="@+id/email_IDSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!--
-
-
-
-
-
-
-
-
-
-                End Year
-
-
-                -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/mobileLayout"
                     android:layout_width="match_parent"
@@ -219,15 +238,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/email_IDLayout">
 
+
+                    <View
+                        android:id="@+id/mobileSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/mobile_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -236,14 +265,13 @@
                         android:id="@+id/mobileTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mobile_"
+                        android:hint="@string/mobile"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/mobile"
+                        app:layout_constraintStart_toEndOf="@id/mobileSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -256,15 +284,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/mobileLayout">
 
+
+                    <View
+                        android:id="@+id/summarySplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
                     <TextView
                         android:id="@+id/summary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/summary_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -273,14 +312,13 @@
                         android:id="@+id/summaryTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/summary_"
+                        android:hint="@string/summary"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/summary"
+                        app:layout_constraintStart_toEndOf="@+id/summarySplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -293,15 +331,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/summaryLayout">
 
+
+                    <View
+                        android:id="@+id/degree_NameSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/degree_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/degree_name"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -310,14 +358,13 @@
                         android:id="@+id/degree_NameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/degreeName"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/degree_Name"
+                        app:layout_constraintStart_toEndOf="@+id/degree_NameSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -330,15 +377,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/degree_NameLayout">
 
+
+                    <View
+                        android:id="@+id/instituteSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/institute"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/institute_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -353,8 +410,7 @@
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/institute"
+                        app:layout_constraintStart_toEndOf="@+id/instituteSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -367,15 +423,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/instituteLayout">
 
+
+                    <View
+                        android:id="@+id/start_YearSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/start_Year"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/start_year_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -384,14 +450,13 @@
                         android:id="@+id/start_YearTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/start_year_"
+                        android:hint="@string/startYear"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/start_Year"
+                        app:layout_constraintStart_toEndOf="@+id/start_YearSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -404,15 +469,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/start_YearLayout">
 
+
+                    <View
+                        android:id="@+id/end_YearSplitView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
                     <TextView
                         android:id="@+id/end_Year"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/end_year_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -421,14 +497,13 @@
                         android:id="@+id/end_YearTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/endYear"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/end_Year"
+                        app:layout_constraintStart_toEndOf="@+id/end_YearSplitView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -441,15 +516,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/end_YearLayout">
 
+
+                    <View
+                        android:id="@+id/company_NameView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
                     <TextView
                         android:id="@+id/company_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/company_name_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -458,14 +544,13 @@
                         android:id="@+id/company_NameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/companyName"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/company_Name"
+                        app:layout_constraintStart_toEndOf="@+id/company_NameView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -478,15 +563,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/company_NameLayout">
 
+
+                    <View
+                        android:id="@+id/joining_Date_YearView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/joining_Date_Year"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/joining_date_year"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -495,14 +590,13 @@
                         android:id="@+id/joining_Date_YearTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/joiningDateYear"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/joining_Date_Year"
+                        app:layout_constraintStart_toEndOf="@+id/joining_Date_YearView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -516,15 +610,25 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/joining_Date_YearLayout">
 
+
+                    <View
+                        android:id="@+id/skills_HobbiesView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/skills_Hobbies"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/skills_hobbies_"
                         android:padding="10dp"
-                        android:textColor="@color/dark_blue"
-                        android:textColorHint="@color/dark_blue"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -533,14 +637,13 @@
                         android:id="@+id/skills_HobbiesTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Name:"
+                        android:hint="@string/skillsHobbies"
                         android:padding="10dp"
                         android:textColor="@color/dark_blue"
                         android:textColorHint="@color/dark_blue"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/skills_Hobbies"
+                        app:layout_constraintStart_toEndOf="@+id/skills_HobbiesView"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -549,6 +652,15 @@
 
         </ScrollView>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

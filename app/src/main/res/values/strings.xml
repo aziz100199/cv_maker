@@ -33,9 +33,11 @@
     <string name="degree_name">Degree Name :</string>
     <string name="summary_">Summary :</string>
     <string name="institute_">Institute :</string>
-    <string name="start_year_">Start Year</string>
+    <string name="start_year_">Start Year :</string>
     <string name="end_year_">End Year :</string>
     <string name="joining_date_year">Joining Date Year :</string>
     <string name="skills_hobbies_">Skills Hobbies :</string>
     <string name="company_name_">Company Name :</string>
+    <string name="email_id_">Email ID :</string>
+    <string name="name__">Name :</string>
 </resources>

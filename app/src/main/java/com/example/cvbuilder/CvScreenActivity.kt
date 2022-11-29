@@ -34,8 +34,8 @@ class CvScreenActivity : AppCompatActivity() {
                 auth.signOut()
                 if (auth.currentUser == null) {
                     val intent = Intent(this@CvScreenActivity, SignInActivity::class.java);
-                    /*     intent.flags=Intent.FLAG_ACTIVITY_NEW_TASK
-                          Intent.FLAG_ACTIVITY_CLEAR_TASK*/
+                         intent.flags=Intent.FLAG_ACTIVITY_NEW_TASK
+                          Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
 
@@ -63,11 +63,12 @@ class CvScreenActivity : AppCompatActivity() {
         killApp()
         return super.onSupportNavigateUp()
     }
-   fun killApp(){
-       val appKill = Intent(Intent.ACTION_MAIN)
-       appKill.addCategory(Intent.CATEGORY_HOME)
-       appKill.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-       startActivity(appKill)
-   }
+
+    fun killApp() {
+        val appKill = Intent(Intent.ACTION_MAIN)
+        appKill.addCategory(Intent.CATEGORY_HOME)
+        appKill.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(appKill)
+    }
 
 }

@@ -1,10 +1,11 @@
 package com.example.cvbuilder
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import com.example.cvbuilder.Utils.showToast
 import com.example.cvbuilder.databinding.ActivityGetCvBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,12 +21,31 @@ class GetCvActivity : AppCompatActivity() {
     }
 
     private fun gettingValue() {
-        db.collection("users").get().addOnSuccessListener {
-            it.forEach { document ->
-                Log.d("getData", "${document.id} => ${document.data}")
+
+        binding?.apply {
+            progressBar.isVisible = true
+            db.collection("users").document("document").get().addOnSuccessListener {
+                nameTitle.text = it.data?.get("name").toString()
+                nameTv.text = it.data?.get("name").toString()
+                fatherNameTv.text = it.data?.get("father_Name").toString()
+                emailIDTv.text = it.data?.get("eMail_ID").toString()
+                mobileTv.text = it.data?.get("mobile").toString()
+                summaryTv.text = it.data?.get("summary").toString()
+                degreeNameTv.text = it.data?.get("degree_Name").toString()
+                instituteTv.text = it.data?.get("institute").toString()
+                startYearTv.text = it.data?.get("start_Year").toString()
+                endYearTv.text = it.data?.get("end_Year").toString()
+                companyNameTv.text = it.data?.get("company_Name").toString()
+                joiningDateYearTv.text = it.data?.get("joining_Date_Year").toString()
+                skillsHobbiesTv.text = it.data?.get("skills_Hobbies").toString()
+                progressBar.isVisible = false
+            }.addOnFailureListener {
+                showToast("some thing went to wrong", this@GetCvActivity)
+                progressBar.isVisible = false
             }
+
+
         }
-//        binding?.getDataTv?.text = ""
     }
 
 

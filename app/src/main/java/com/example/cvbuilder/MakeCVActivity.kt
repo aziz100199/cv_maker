@@ -25,7 +25,6 @@ class MakeCVActivity : AppCompatActivity() {
     private fun clickListeners() {
         binding?.upload?.setOnClickListener {
             upLoadData()
-
         }
     }
 
@@ -58,8 +57,8 @@ class MakeCVActivity : AppCompatActivity() {
             val company_Name = companyNameEd.text.toString()
             val joining_Date_Year = joiningDateYearEd.text.toString()
             val skills_Hobbies = skillsHobbiesEd.text.toString()
-            upload.isEnabled=false
-            progressBar.isVisible=true
+            upload.isEnabled = false
+            progressBar.isVisible = true
             val user = hashMapOf(
                 "name" to name,
                 "father_Name" to father_Name,
@@ -75,22 +74,41 @@ class MakeCVActivity : AppCompatActivity() {
                 "skills_Hobbies" to skills_Hobbies,
             )
 // Add a new document with a generated ID
-            db.collection("users")
-                .add(user)
+
+            db.collection("users").document("document").set(user)
                 .addOnSuccessListener { documentReference ->
                     showToast("Uploaded SuccessFully", this@MakeCVActivity);
-                    upload.isEnabled=true
-                    progressBar.isVisible=false
+                    upload.isEnabled = true
+                    progressBar.isVisible = false
                     Log.d(
                         "dataBaseStorage",
-                        "DocumentSnapshot added with ID: ${documentReference.id}"
+                        "DocumentSnapshot added with ID: $documentReference"
                     )
                 }
                 .addOnFailureListener { e ->
-                    upload.isEnabled=true
-                    progressBar.isVisible=false
+                    upload.isEnabled = true
+                    progressBar.isVisible = false
                     Log.w("dataBaseStorage", "Error adding document", e)
                 }
+
+
+            /*  db.collection("users")
+                    .add(user)
+                    .addOnSuccessListener { documentReference ->
+                        showToast("Uploaded SuccessFully", this@MakeCVActivity);
+                        upload.isEnabled=true
+                        progressBar.isVisible=false
+                        Log.d(
+                            "dataBaseStorage",
+                            "DocumentSnapshot added with ID: ${documentReference.id}"
+                        )
+                    }
+                    .addOnFailureListener { e ->
+                        upload.isEnabled=true
+                        progressBar.isVisible=false
+                        Log.w("dataBaseStorage", "Error adding document", e)
+                    }
+            }*/
         }
     }
 }

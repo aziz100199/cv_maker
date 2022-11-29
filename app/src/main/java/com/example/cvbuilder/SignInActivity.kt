@@ -2,6 +2,7 @@ package com.example.cvbuilder
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -18,13 +19,14 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_set_up)
         toolBar()
+        backPressCallBack()
         clickListeners()
     }
 
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if (currentUser != null) {
             startActivity(Intent(this, CvScreenActivity::class.java))
         }
     }
@@ -34,11 +36,11 @@ class SignInActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 startActivity(Intent(this, CvScreenActivity::class.java))
                 showToast("Login SuccessFully", this@SignInActivity)
-                binding?.progressBar?.isVisible=false
+                binding?.progressBar?.isVisible = false
             } /*else if (it.result.user?.isEmailVerified == false) {
                 showToast("Please Check Your Email")
             }*/ else {
-                binding?.progressBar?.isVisible=false
+                binding?.progressBar?.isVisible = false
                 showToast("some thing went to wrong", this@SignInActivity)
             }
         }
@@ -71,8 +73,7 @@ class SignInActivity : AppCompatActivity() {
                     showToast("Password Must Be More Then Six Character", this@SignInActivity)
                 } else {
                     if (checkForInternet(this@SignInActivity)) {
-                        showToast("internetAvailable", this@SignInActivity)
-                        progressBar.isVisible=true
+                        progressBar.isVisible = true
                         proceedToSingIn(email.toString(), psd.toString())
                     } else {
                         showToast("check your internet", this@SignInActivity)
@@ -84,9 +85,24 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return super.onSupportNavigateUp()
+    private fun backPressCallBack() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                killApp()
+            }
+        })
     }
 
+    fun killApp() {
+        val appKill = Intent(Intent.ACTION_MAIN)
+        appKill.addCategory(Intent.CATEGORY_HOME)
+        appKill.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(appKill)
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        killApp()
+        return super.onSupportNavigateUp()
+    }
 }
