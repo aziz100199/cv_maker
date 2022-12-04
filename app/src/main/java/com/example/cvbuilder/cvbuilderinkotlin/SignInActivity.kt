@@ -1,4 +1,4 @@
-package com.example.cvbuilder
+package com.example.cvbuilder.cvbuilderinkotlin
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import com.example.cvbuilder.Utils.checkForInternet
-import com.example.cvbuilder.Utils.showToast
+import com.example.cvbuilder.R
+import com.example.cvbuilder.Utils.Utils.checkForInternet
+import com.example.cvbuilder.Utils.Utils.showToast
 import com.example.cvbuilder.databinding.ActivitySetUpBinding
 import com.google.firebase.auth.FirebaseAuth
 

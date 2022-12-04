@@ -1,4 +1,4 @@
-package com.example.cvbuilder
+package com.example.cvbuilder.cvbuilderinkotlin
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.example.cvbuilder.R
 import com.example.cvbuilder.databinding.ActivityMainScreenBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -20,6 +21,7 @@ class MainScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_screen)
+
         lifecycleScope.launch {
             getDelay()
                 .onStart {

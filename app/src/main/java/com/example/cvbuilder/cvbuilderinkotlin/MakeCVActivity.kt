@@ -1,4 +1,4 @@
-package com.example.cvbuilder
+package com.example.cvbuilder.cvbuilderinkotlin
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import com.example.cvbuilder.Utils.showToast
+import com.example.cvbuilder.R
+import com.example.cvbuilder.Utils.Utils.showToast
 import com.example.cvbuilder.databinding.ActivityMakeCvactivityBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,7 @@ class MakeCVActivity : AppCompatActivity() {
 
         clickListeners()
         toolBar()
+
     }
 
     private fun clickListeners() {
@@ -73,6 +75,9 @@ class MakeCVActivity : AppCompatActivity() {
                 "joining_Date_Year" to joining_Date_Year,
                 "skills_Hobbies" to skills_Hobbies,
             )
+
+
+
 // Add a new document with a generated ID
 
             db.collection("users").document("document").set(user)
@@ -90,25 +95,6 @@ class MakeCVActivity : AppCompatActivity() {
                     progressBar.isVisible = false
                     Log.w("dataBaseStorage", "Error adding document", e)
                 }
-
-
-            /*  db.collection("users")
-                    .add(user)
-                    .addOnSuccessListener { documentReference ->
-                        showToast("Uploaded SuccessFully", this@MakeCVActivity);
-                        upload.isEnabled=true
-                        progressBar.isVisible=false
-                        Log.d(
-                            "dataBaseStorage",
-                            "DocumentSnapshot added with ID: ${documentReference.id}"
-                        )
-                    }
-                    .addOnFailureListener { e ->
-                        upload.isEnabled=true
-                        progressBar.isVisible=false
-                        Log.w("dataBaseStorage", "Error adding document", e)
-                    }
-            }*/
         }
     }
 }

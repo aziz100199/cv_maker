@@ -1,4 +1,4 @@
-package com.example.cvbuilder
+package com.example.cvbuilder.cvbuilderinkotlin
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import com.example.cvbuilder.R
 import com.example.cvbuilder.databinding.ActivityCvScreenBinding
 import com.google.firebase.auth.FirebaseAuth
 

@@ -1,4 +1,4 @@
-package com.example.cvbuilder
+package com.example.cvbuilder.Utils
 
 import android.content.Context
 import android.net.ConnectivityManager

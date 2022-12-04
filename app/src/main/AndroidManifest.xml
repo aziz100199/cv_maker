@@ -19,55 +19,106 @@
         android:theme="@style/Theme.CvBuilder"
         tools:targetApi="31">
         <activity
-            android:name=".GetCvActivity"
+            android:name=".cvbuild.CvShowActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MakeCVActivity"
+            android:name=".cvbuild.CvOptionActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CvScreenActivity"
+            android:name=".cvbuild.CvCreateActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SingUpActivity"
+            android:name=".cvbuild.SignnUpActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignInActivity"
+            android:name=".cvbuild.SignInnActivity"
             android:exported="false">
-            <!--         <intent-filter>
-                         <action android:name="android.intent.action.MAIN" />
-
-                         <category android:name="android.intent.category.LAUNCHER" />
-                     </intent-filter>-->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainScreen"
+            android:name=".cvbuild.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.GetCvActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.MakeCVActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.CvScreenActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.SingUpActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.SignInActivity"
+            android:exported="false">
+
+            <!--
+                         <intent-filter>
+                         <action android:name="android.intent.action.MAIN" />
+
+                         <category android:name="android.intent.category.LAUNCHER" />
+                     </intent-filter>
+            -->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cvbuilderinkotlin.MainScreen"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <!--  <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>-->
 
             <meta-data
                 android:name="android.app.lib_name"

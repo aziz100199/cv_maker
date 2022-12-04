@@ -40,4 +40,5 @@
     <string name="company_name_">Company Name :</string>
     <string name="email_id_">Email ID :</string>
     <string name="name__">Name :</string>
+    <string name="option">Option</string>
 </resources>
